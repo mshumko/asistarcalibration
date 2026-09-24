@@ -1,6 +1,6 @@
 # starfind_example.py
 # minimal example to run StarFinder
-
+import pathlib
 import numpy as np
 from PIL import Image
 from skimage import exposure
@@ -22,9 +22,11 @@ filelist = ['PFRR_20250103_032703_0558.png',
             'PFRR_20250103_032851_0558.png',
            ]
 
+download_dir = pathlib.Path.cwd() / 'data'
+
 imglist = list()
 for file in filelist:
-    im = Image.open(file)
+    im = Image.open(download_dir / file)
     imglist.append(im)
 img = np.mean(imglist, axis=0)
 img_eq = exposure.equalize_hist(img)

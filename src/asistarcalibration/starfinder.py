@@ -76,9 +76,18 @@ class StarFinder:
             else:
                 try:
                     s = self.planets[key]
-                except KeyError:
-                    key1 = f'{key} barycenter'
-                    s = self.planets[key1]
+                except (KeyError, ValueError) as err:
+                    if isinstance(err, KeyError):
+                        key1 = f'{key} barycenter'
+                        s = self.planets[key1]
+                    elif isinstance(err, ValueError):
+                        print(f'Entered {key} is not a recognized planet or in the Hipparcos database!')
+                        new_pnt.remove()
+                        self.fig.canvas.draw()
+                        return
+                    else:
+                        raise
+                    
                 name = key
                 hip = 0
         except KeyError:
