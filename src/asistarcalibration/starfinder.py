@@ -124,11 +124,12 @@ class StarFinder:
         print(f'GLAT: {self.site_lat}\nGLON: {self.site_lon}')
 
         # Display image with stars
-        self.fig, self.ax = plt.subplots()
+        self.fig, self.ax = plt.subplots(figsize=(6, 6.5), tight_layout=True)
         # Set up button press event trigger
         self.fig.canvas.mpl_connect('button_press_event', self.add_star)
         # Display image
         self.ax.imshow(image, cmap='gray', **imshow_kw)
+        self.ax.set_title('Star Finder: double click to add planets/stars\npress "o" to zoom-in and "h" to revert to original view')
         
         self.ax.scatter(self.starlist['x'], self.starlist['y'], facecolors='none', edgecolors='r')
 

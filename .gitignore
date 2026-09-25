@@ -210,3 +210,5 @@ __marimo__/
 *.png
 tutorial/de421.bsp
 tutorial/hip_main.dat
+.vscode/settings.json
+tutorial/test_out2.txt
