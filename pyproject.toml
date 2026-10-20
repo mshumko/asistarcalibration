@@ -30,7 +30,6 @@ dependencies = [
     "skyfield",
     "pymap3d",
     "h5py",
-    "scikit-image",
     "importlib_resources>1.3; python_version < '3.10'",
 ]
 
@@ -43,6 +42,12 @@ dependencies = [
 #]
 devel = [
     'build'
+]
+tutorial = [
+    "scikit-image",
+    "jupyterlab",
+    "cartopy",
+    "pillow"
 ]
 
 [project.urls]
